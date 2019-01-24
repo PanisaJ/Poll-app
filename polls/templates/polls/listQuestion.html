@@ -1,0 +1,11 @@
+<h3>Detele</h3>
+{% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+<form action="{% url 'polls:delete' %}" method="post">
+{% csrf_token %}
+{% for question in question_list %}
+    <input type="radio" name="Question" id="question{{ forloop.counter }}" value="{{ question.id }}">
+    <label for="question{{ forloop.counter }}">{{ question.question_text }}</label><br>
+{% endfor %}
+<input type="submit" value="Delete">
+</form>
+<a href="{% url 'polls:index' %}">back</a>

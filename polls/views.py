@@ -19,6 +19,12 @@ class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
 
+class ListQuestionView(generic.ListView):
+    template_name = 'polls/listQuestion.html'
+    context_object_name = 'question_list'
+
+    def get_queryset(self):
+        return Question.objects.all
 
 class ResultsView(generic.DetailView):
     model = Question
@@ -43,5 +49,16 @@ def vote(request, question_id):
         # user hits the Back button.
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
 
-
+def delete(request):
+    try:
+        selected_question = Question.objects.get(pk=request.POST['Question'])
+    except (KeyError, Question.DoesNotExist):
+        return render(request, 'polls/listQuestion.html', {
+            'question_list': Question.objects.all,
+            'error_message': "You didn't select a Question.",
+        })
+    else:
+        selected_question.delete()
+        return HttpResponseRedirect(reverse('polls:index'))
+   
 

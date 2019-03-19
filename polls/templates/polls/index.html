@@ -1,10 +1,26 @@
 {% if latest_question_list %}
-    <ul>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+ table, th ,td{border:1px solid black;}
+</style>
+<table>
+    <tr>
+       <th>Question</th>
+       <th>choice</th>
+    </tr>
     {% for question in latest_question_list %}
-        <li><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    <tr><td><a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></td>
+     
+          <td></br>
+           {% for ch in question.choice_set.all %}
+    	   <ul><li>{{ch.choice_text}}</li></ul>
+          {% endfor %}
+       </td>
+    </tr>
     {% endfor %}
-    </ul>
-    <a href="{% url 'polls:listQuestion' %}">Delete Question</a>
+</table></br>
+   
+ <a href="{% url 'polls:listQuestion' %}">Delete Question</a>
 {% else %}
     <p>No polls are available.</p>
 {% endif %}

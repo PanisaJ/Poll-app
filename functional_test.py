@@ -53,56 +53,6 @@ class NewVisitorTest(unittest.TestCase):
         # ทำให้หน้าผลโหวตที่ตอนแรกตัวเลือก 'China' เป็น 0 มีค่าเป็นหนึ่งแทน
         # หลังจากที่เธอตอบคำถามเสร็จเธอจึงปิดคอมเข้านอน เพื่อไปโรงเรียนแต่เช้า
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        #self.browser.get('http://localhost:8000/')
-        
-        #header_text = self.browser.find_element_by_tag_name('table')  
-        #self.assertIn('Multiplication', header_text)
-
-        #inputbox = self.browser.find_element_by_name('num') 
-        #inputbox.send_keys(3)
-        #inputbox.send_keys(Keys.ENTER)
-        #time.sleep(1)
-
-        #header_text = self.browser.find_element_by_tag_name('h2').text 
-        #self.assertIn('mulitiplication table', header_text)
-
-        #table = self.browser.find_element_by_tag_name('table')
-        #rows = table.find_elements_by_tag_name('tr')
-         
-        #for i in range(1,13):
-        #    texts = "3 X "+str(i)+" "+str(3*i)
-        #    self.assertIn(texts, [row.text for row in rows])
-
-        #backBtn = self.browser.find_element_by_tag_name('a')
-        #backBtn.send_keys(Keys.ENTER) 
-        #time.sleep(1)
-        #header_text = self.browser.find_element_by_tag_name('h1').text  
-        #self.assertIn('Multiplication', header_text)
-
-        #selector = self.browser.find_element_by_xpath("//select[@name='sort']/option[text()='number']").click()
-        #selector.send_keys(Keys.ENTER)
-        #time.sleep(1)
-
-        #sort_text = self.browser.find_element_by_tag_name('h2').text 
-        #self.assertIn('History', sort_text)
-
         self.fail('Finish the test!')
 
 if __name__ == '__main__':  
